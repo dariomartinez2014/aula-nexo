@@ -38,7 +38,7 @@ function Detalle({ id }: { id: number }) {
       setInscripcionConfirmada(true)
       recargar()
     } catch (error) {
-      setErrorInscripcion(mensajeError(error, 'No se pudo completar la inscripciÃ³n.'))
+      setErrorInscripcion(mensajeError(error, 'No se pudo completar la inscripción.'))
     } finally {
       setEnviando(false)
     }
@@ -46,12 +46,12 @@ function Detalle({ id }: { id: number }) {
 
   return <>
     <Link to="/cursos" className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">
-      <ArrowLeft size={17} aria-hidden="true" /> Volver al catÃ¡logo
+      <ArrowLeft size={17} aria-hidden="true" /> Volver al catálogo
     </Link>
-    {inscripcionConfirmada && <p role="status" className="mb-4 rounded-xl bg-emerald-100 p-4 text-emerald-900">InscripciÃ³n confirmada.</p>}
+    {inscripcionConfirmada && <p role="status" className="mb-4 rounded-xl bg-emerald-100 p-4 text-emerald-900">Inscripción confirmada.</p>}
     {cargando ? <Cargando /> : error ? <AvisoError mensaje={error} reintentar={recargar} /> :
       data && <section className={`${panel} max-w-2xl`}>
-        <p className="mb-2 text-sm font-semibold text-brand">{data.curso.codigo} Â· {data.curso.creditos} crÃ©ditos</p>
+        <p className="mb-2 text-sm font-semibold text-brand">{data.curso.codigo} · {data.curso.creditos} créditos</p>
         <Encabezado titulo={data.curso.nombre} />
         <DatosCurso curso={data.curso} />
         {errorInscripcion && <div className="mt-5"><AvisoError mensaje={errorInscripcion} /></div>}
@@ -66,7 +66,7 @@ export function CursoDetallePage() {
   const { id } = useParams()
   const cursoId = Number(id)
   if (!Number.isSafeInteger(cursoId) || cursoId <= 0) {
-    return <><Encabezado titulo="Curso no encontrado" /><Link className={boton} to="/cursos">Volver al catÃ¡logo</Link></>
+    return <><Encabezado titulo="Curso no encontrado" /><Link className={boton} to="/cursos">Volver al catálogo</Link></>
   }
   return <Detalle key={cursoId} id={cursoId} />
 }

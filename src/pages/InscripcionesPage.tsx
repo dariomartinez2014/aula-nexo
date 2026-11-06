@@ -17,13 +17,13 @@ export function InscripcionesPage() {
     <Encabezado titulo="Mis inscripciones">Consulta el estado de los cursos que has inscrito.</Encabezado>
     {cargando ? <Cargando /> : error ? <AvisoError mensaje={error} reintentar={recargar} /> :
       !data?.length ? <div className={panel}>
-        <p className="mb-2">TodavÃ­a no tienes inscripciones.</p>
+        <p className="mb-2">Todavía no tienes inscripciones.</p>
         <Link className="font-semibold text-brand underline" to="/cursos">Explorar cursos</Link>
       </div> :
       <ul className="space-y-3">
         {data.map(({ id, curso, estado, fecha: inscritoEl }) => <li key={id} className={`${panel} flex flex-wrap items-center justify-between gap-4`}>
           <div>
-            <p className="mb-1 text-xs font-semibold text-brand">{curso.codigo} Â· {curso.creditos} crÃ©ditos</p>
+            <p className="mb-1 text-xs font-semibold text-brand">{curso.codigo} · {curso.creditos} créditos</p>
             <Link className="font-bold hover:underline" to={`/cursos/${curso.id}`}>{curso.nombre}</Link>
             <p className="mt-1 text-sm text-slate-600">{fecha.format(new Date(inscritoEl))}</p>
           </div>

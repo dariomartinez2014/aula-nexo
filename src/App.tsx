@@ -28,7 +28,7 @@ export default function App() {
       </Route>
     </Route>
     <Route path="*" element={<main className="mx-auto max-w-lg px-6 py-24">
-      <Encabezado titulo="PÃ¡gina no encontrada">La direcciÃ³n que abriste no existe.</Encabezado>
+      <Encabezado titulo="Página no encontrada">La dirección que abriste no existe.</Encabezado>
       <Link className={boton} to="/">Volver al inicio</Link>
     </main>} />
   </Routes>

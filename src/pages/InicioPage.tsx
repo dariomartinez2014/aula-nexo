@@ -21,21 +21,21 @@ function InicioEstudiante({ usuario }: { usuario: Usuario }) {
   const activas = (data ?? []).filter(({ estado }) => estado === 'ACTIVA')
   const creditos = activas.reduce((total, { curso }) => total + curso.creditos, 0)
   return <>
-    <Encabezado titulo={`Hola, ${usuario.nombre}`}>Consulta tus cursos activos y los crÃ©ditos que llevas.</Encabezado>
+    <Encabezado titulo={`Hola, ${usuario.nombre}`}>Consulta tus cursos activos y los créditos que llevas.</Encabezado>
     {cargando ? <Cargando /> : error ? <AvisoError mensaje={error} reintentar={recargar} /> :
       <>
         <div className="grid gap-4 sm:grid-cols-2">
           <Metrica titulo="Cursos inscritos activos" valor={activas.length} icono={BookOpen} />
-          <Metrica titulo="CrÃ©ditos activos" valor={creditos} icono={GraduationCap} />
+          <Metrica titulo="Créditos activos" valor={creditos} icono={GraduationCap} />
         </div>
         <section className={`${panel} mt-5`}>
           <h2 className="mb-3 text-xl font-bold">Mis cursos activos</h2>
           {activas.length ? <ul className="divide-y divide-slate-100">
-            {activas.map(({ id, curso }) => <li key={id} className="py-2"><Link className="font-medium text-brand hover:underline" to={`/cursos/${curso.id}`}>{curso.codigo} Â· {curso.nombre}</Link></li>)}
-          </ul> : <p className="text-slate-600">AÃºn no tienes cursos activos.</p>}
+            {activas.map(({ id, curso }) => <li key={id} className="py-2"><Link className="font-medium text-brand hover:underline" to={`/cursos/${curso.id}`}>{curso.codigo} · {curso.nombre}</Link></li>)}
+          </ul> : <p className="text-slate-600">Aún no tienes cursos activos.</p>}
         </section>
       </>}
-    <Link className={`${boton} mt-6`} to="/cursos">Explorar catÃ¡logo <ArrowRight size={17} aria-hidden="true" /></Link>
+    <Link className={`${boton} mt-6`} to="/cursos">Explorar catálogo <ArrowRight size={17} aria-hidden="true" /></Link>
   </>
 }
 
@@ -65,7 +65,7 @@ export function InicioPage() {
   if (usuario.rol === 'ADMIN') return <InicioAdmin usuario={usuario} />
   if (usuario.rol === 'ESTUDIANTE') return <InicioEstudiante usuario={usuario} />
   return <>
-    <Encabezado titulo={`Hola, ${usuario.nombre}`}>Consulta el catÃ¡logo de Aula Nexo.</Encabezado>
-    <Link className={boton} to="/cursos">Explorar catÃ¡logo</Link>
+    <Encabezado titulo={`Hola, ${usuario.nombre}`}>Consulta el catálogo de Aula Nexo.</Encabezado>
+    <Link className={boton} to="/cursos">Explorar catálogo</Link>
   </>
 }

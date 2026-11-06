@@ -35,7 +35,7 @@ export function AuthPage({ registro = false }: { registro?: boolean }) {
       iniciarSesion(resultado)
       navegar('/inicio', { replace: true })
     } catch (error) {
-      setError(mensajeError(error, registro ? 'No se pudo crear la cuenta.' : 'No se pudo iniciar sesiÃ³n.'))
+      setError(mensajeError(error, registro ? 'No se pudo crear la cuenta.' : 'No se pudo iniciar sesión.'))
     } finally {
       setEnviando(false)
     }
@@ -47,17 +47,17 @@ export function AuthPage({ registro = false }: { registro?: boolean }) {
         <span className="rounded-xl bg-brand p-2.5"><BookOpen size={22} aria-hidden="true" /></span>Aula Nexo
       </div>
       <div>
-        <p className="mb-3 text-sm font-semibold tracking-widest text-emerald-300 uppercase">Aprendizaje en lÃ­nea</p>
-        <p className="max-w-lg text-4xl leading-tight font-bold sm:text-5xl">Tu siguiente curso empieza aquÃ­.</p>
-        <p className="mt-4 max-w-md text-slate-300">Explora el catÃ¡logo, consulta los cupos y organiza tus inscripciones.</p>
+        <p className="mb-3 text-sm font-semibold tracking-widest text-emerald-300 uppercase">Aprendizaje en línea</p>
+        <p className="max-w-lg text-4xl leading-tight font-bold sm:text-5xl">Tu siguiente curso empieza aquí.</p>
+        <p className="mt-4 max-w-md text-slate-300">Explora el catálogo, consulta los cupos y organiza tus inscripciones.</p>
       </div>
-      <p className="hidden text-sm text-slate-400 lg:block">Aula Nexo Â· Plataforma de cursos</p>
+      <p className="hidden text-sm text-slate-400 lg:block">Aula Nexo · Plataforma de cursos</p>
     </aside>
     <section className="flex items-center justify-center px-6 py-10">
       <form className="w-full max-w-md space-y-4" onSubmit={enviar}>
         <div className="mb-7">
-          <h1 className="text-3xl font-bold">{registro ? 'Crea tu cuenta' : 'Iniciar sesiÃ³n'}</h1>
-          <p className="mt-2 text-slate-600">{registro ? 'RegÃ­strate como estudiante en Aula Nexo.' : 'Accede a tu espacio en Aula Nexo.'}</p>
+          <h1 className="text-3xl font-bold">{registro ? 'Crea tu cuenta' : 'Iniciar sesión'}</h1>
+          <p className="mt-2 text-slate-600">{registro ? 'Regístrate como estudiante en Aula Nexo.' : 'Accede a tu espacio en Aula Nexo.'}</p>
         </div>
         {error && <AvisoError mensaje={error} />}
         {registro && <div className="grid gap-4 sm:grid-cols-2">
@@ -65,16 +65,16 @@ export function AuthPage({ registro = false }: { registro?: boolean }) {
           <label className="text-sm font-medium">Apellido<input className={campo} name="apellido" autoComplete="family-name" maxLength={100} required /></label>
         </div>}
         <label className="block text-sm font-medium">Usuario<input className={campo} name="username" autoComplete="username" required minLength={registro ? 3 : undefined} maxLength={registro ? 50 : undefined} pattern={registro ? '[a-zA-Z0-9._\\-]+' : undefined} /></label>
-        {registro && <label className="block text-sm font-medium">Correo electrÃ³nico (opcional)<input className={campo} type="email" name="email" autoComplete="email" maxLength={150} /></label>}
-        <label className="block text-sm font-medium">ContraseÃ±a
+        {registro && <label className="block text-sm font-medium">Correo electrónico (opcional)<input className={campo} type="email" name="email" autoComplete="email" maxLength={150} /></label>}
+        <label className="block text-sm font-medium">Contraseña
           <input className={campo} type="password" name="password" autoComplete={registro ? 'new-password' : 'current-password'} required minLength={registro ? 8 : undefined} maxLength={registro ? 72 : undefined} pattern={registro ? '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+' : undefined} />
-          {registro && <span className="mt-1 block text-xs text-slate-600">Al menos 8 caracteres, con mayÃºscula, minÃºscula y nÃºmero.</span>}
+          {registro && <span className="mt-1 block text-xs text-slate-600">Al menos 8 caracteres, con mayúscula, minúscula y número.</span>}
         </label>
         <button className={`${boton} w-full`} disabled={enviando}>
           {enviando ? 'Conectando con la API...' : registro ? 'Crear cuenta' : 'Ingresar'}<ArrowUpRight size={16} aria-hidden="true" />
         </button>
-        <p className="text-sm text-slate-600">{registro ? 'Â¿Ya tienes cuenta?' : 'Â¿TodavÃ­a no tienes cuenta?'}{' '}
-          <Link className="font-semibold text-brand underline" to={registro ? '/login' : '/registro'}>{registro ? 'Inicia sesiÃ³n' : 'RegÃ­strate'}</Link>
+        <p className="text-sm text-slate-600">{registro ? '¿Ya tienes cuenta?' : '¿Todavía no tienes cuenta?'}{' '}
+          <Link className="font-semibold text-brand underline" to={registro ? '/login' : '/registro'}>{registro ? 'Inicia sesión' : 'Regístrate'}</Link>
         </p>
       </form>
     </section>

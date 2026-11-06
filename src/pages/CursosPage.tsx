@@ -16,14 +16,14 @@ export function CursosPage() {
   )
 
   return <>
-    <Encabezado titulo="CatÃ¡logo de cursos">Consulta los cursos disponibles y sus cupos.</Encabezado>
+    <Encabezado titulo="Catálogo de cursos">Consulta los cursos disponibles y sus cupos.</Encabezado>
     <Buscador valor={busqueda} onCambiar={setBusqueda} />
     {cargando ? <Cargando /> : error ? <AvisoError mensaje={error} reintentar={recargar} /> :
-      cursos.length === 0 ? <p className={panel}>{termino ? 'Sin resultados para tu bÃºsqueda.' : 'No hay cursos disponibles.'}</p> :
+      cursos.length === 0 ? <p className={panel}>{termino ? 'Sin resultados para tu búsqueda.' : 'No hay cursos disponibles.'}</p> :
       <div className="grid gap-4 lg:grid-cols-2 2xl:grid-cols-3">
         {cursos.map((curso) => <article key={curso.id} className={`${panel} flex flex-col`}>
           <div className="mb-3 flex flex-wrap justify-between gap-2 text-xs font-semibold text-brand">
-            <span>{curso.codigo}</span><span>{curso.creditos} crÃ©ditos</span>
+            <span>{curso.codigo}</span><span>{curso.creditos} créditos</span>
           </div>
           <h2 className="mb-2 text-xl font-bold">{curso.nombre}</h2>
           <DatosCurso curso={curso} />

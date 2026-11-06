@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #126e63;
+  --color-brand-dark: #0c5149;
+  --color-ink: #10232b;
+}
+:root {
+  font-family: system-ui, sans-serif;
+  color: #10232b;
+  background: #f4f8f7;
+}
+button:not(:disabled) { cursor: pointer; }
+:focus-visible { outline: 3px solid #20a58c; outline-offset: 3px; }

@@ -1,5 +1,7 @@
 import { Link, Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
+import { SoloEstudiante } from './components/SoloEstudiante'
+import { InscripcionesPage } from './pages/InscripcionesPage'
 import { boton, Encabezado } from './components/ui'
 import { AuthPage } from './pages/AuthPage'
 import { CursosPage } from './pages/CursosPage'
@@ -21,6 +23,7 @@ export default function App() {
         <Route path="/inicio" element={<Encabezado titulo="Inicio" />} />
         <Route path="/cursos" element={<CursosPage />} />
         <Route path="/cursos/:id" element={<CursoDetallePage />} />
+        <Route element={<SoloEstudiante />}><Route path="/inscripciones" element={<InscripcionesPage />} /></Route>
       </Route>
     </Route>
     <Route path="*" element={<main className="mx-auto max-w-lg px-6 py-24">

@@ -2,6 +2,7 @@ import { Link, Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { boton, Encabezado } from './components/ui'
 import { AuthPage } from './pages/AuthPage'
+import { CursosPage } from './pages/CursosPage'
 import { useAuthStore } from './store/useAuthStore'
 
 function ConSesion() {
@@ -17,6 +18,7 @@ export default function App() {
     <Route element={<ConSesion />}>
       <Route element={<Layout />}>
         <Route path="/inicio" element={<Encabezado titulo="Inicio" />} />
+        <Route path="/cursos" element={<CursosPage />} />
       </Route>
     </Route>
     <Route path="*" element={<main className="mx-auto max-w-lg px-6 py-24">

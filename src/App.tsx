@@ -3,6 +3,7 @@ import { Layout } from './components/Layout'
 import { boton, Encabezado } from './components/ui'
 import { AuthPage } from './pages/AuthPage'
 import { CursosPage } from './pages/CursosPage'
+import { CursoDetallePage } from './pages/CursoDetallePage'
 import { useAuthStore } from './store/useAuthStore'
 
 function ConSesion() {
@@ -19,6 +20,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/inicio" element={<Encabezado titulo="Inicio" />} />
         <Route path="/cursos" element={<CursosPage />} />
+        <Route path="/cursos/:id" element={<CursoDetallePage />} />
       </Route>
     </Route>
     <Route path="*" element={<main className="mx-auto max-w-lg px-6 py-24">

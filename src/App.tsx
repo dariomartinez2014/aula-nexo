@@ -4,6 +4,7 @@ import { SoloEstudiante } from './components/SoloEstudiante'
 import { InscripcionesPage } from './pages/InscripcionesPage'
 import { boton, Encabezado } from './components/ui'
 import { AuthPage } from './pages/AuthPage'
+import { InicioPage } from './pages/InicioPage'
 import { CursosPage } from './pages/CursosPage'
 import { CursoDetallePage } from './pages/CursoDetallePage'
 import { useAuthStore } from './store/useAuthStore'
@@ -20,7 +21,7 @@ export default function App() {
     <Route path="/registro" element={<AuthPage key="registro" registro />} />
     <Route element={<ConSesion />}>
       <Route element={<Layout />}>
-        <Route path="/inicio" element={<Encabezado titulo="Inicio" />} />
+        <Route path="/inicio" element={<InicioPage />} />
         <Route path="/cursos" element={<CursosPage />} />
         <Route path="/cursos/:id" element={<CursoDetallePage />} />
         <Route element={<SoloEstudiante />}><Route path="/inscripciones" element={<InscripcionesPage />} /></Route>
